@@ -1,0 +1,27 @@
+{
+  "name": "Anti spoiler",
+  "description": "Hide spoilers by keywords",
+  "version": "1.0",
+  "manifest_version": 2,
+  "background": [
+    {
+      "scripts": ["jquery-3.5.1.js", "background.js"],
+      "persistent": false
+    }
+  ],
+  "permissions": ["storage", "activeTab"],
+  "web_accessible_resources": ["style.css"],
+  "content_scripts": [
+    {
+      "matches": ["https://www.vk.com/feed*", "https://vk.com/feed*", "https://www.yandex.ru/search*", "https://yandex.ru/search*", "https://www.google.ru/*", "https://www.google.com/search*", "https://google.com/search*", "https://google.ru/search*"],
+      "css": ["style.css"],
+      "js": ["jquery-3.5.1.js", "content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "browser_action": {
+    "default_title": "Anti Spoiler",
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+}
